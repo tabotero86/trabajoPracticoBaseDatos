@@ -15,8 +15,29 @@
 <body>
     
     <jsp:include page="header.jsp"/>
-    
-    <main class="container-fluid col">
+
+	<section class="col img-header text-end" id="conferencia">
+		<div class="container col">
+			<h1 class="img-header-h1">Conf Bs As</h1>
+			<div class="row">
+				<div class="col"></div>
+				<div class="col">
+					<p>Bs As llega por primera vez a Argentina. Un evento para
+						compartir con nuestra comunidad el conocimiento y experiencia de
+						los expertos que estan creando el futuro de Internet. Ven a
+						conocer a miembros del evento, a otros estudiantes de Codo a Codo
+						y los oradores de primer nivel que tenemos para ti. Te esperamos!</p>
+				</div>
+			</div>
+			<div class="row justify-content-end gap-3">
+				<a class="botonConf w-auto" href="index.jsp#conviertete en orador">Quiero ser orador</a> <a
+					class="botonConf_verde w-auto" href="comprarTickets.html">Comprar
+					tickets</a>
+			</div>
+		</div>
+	</section>
+
+	<main class="container-fluid col">
         <section class="container col" id="oradores">
             <h2 class="text-center">
                 <div class="h2-chica">CONOCE A LOS</div>
@@ -30,7 +51,7 @@
                         <h4 class="h4tarjeta colorCeleste">React</h4>
                         <h3 class="card-title">Steve Jobs</h3>
                         <p class="card-text">
-                            Steven Paul Jobs ​​​​fue un empresario, diseñador industrial, magnate empresarial, propietario de medios e inversor estadounidense. Fue cofundador y presidente ejecutivo de Apple​ y maximo accionista individual de The Walt Disney Company.​
+                            Steven Paul Jobs fue un empresario, diseñador industrial, magnate empresarial, propietario de medios e inversor estadounidense. Fue cofundador y presidente ejecutivo de Apple y maximo accionista individual de The Walt Disney Company.
                         </p>
                     </div>                
                 </div>
@@ -41,7 +62,7 @@
                         <h4  class="h4tarjeta colorCeleste">React</h4>
                         <h3 class="card-title">Bill Gates</h3>
                         <p class="card-text">
-                            William Henry Gates III, más conocido como Bill Gates, es un magnate empresarial, desarrollador de software, inversor, autor y filántropo estadounidense. Es cofundador de Microsoft, junto con su amigo de infancia Paul A.  
+                            William Henry Gates III, mas conocido como Bill Gates, es un magnate empresarial, desarrollador de software, inversor, autor y filantropo estadounidense. Es cofundador de Microsoft, junto con su amigo de infancia Paul A.  
                         </p>
                     </div>                
                 </div>
@@ -52,12 +73,19 @@
                         <h4 class="h4tarjeta colorRojo">Startups</h4>
                         <h3 class="card-title">Ada Lovelace</h3>
                         <p class="card-text">
-                            Augusta Ada King, condesa de Lovelace, registrada al nacer como Augusta Ada Byron y conocida habitualmente como Ada Lovelace, fue una matemática y escritora británica, célebre sobre todo por su trabajo acerca de la computadora.  
+                            Augusta Ada King, condesa de Lovelace, registrada al nacer como Augusta Ada Byron y conocida habitualmente como Ada Lovelace, fue una matematica y escritora britanica, celebre sobre todo por su trabajo acerca de la computadora.  
                         </p>
                     </div>                
                 </div>
             </div>            
         </section>
+        
+  		<section class="container mb-4 mt-4 text-center" id="restoOradores">
+  		
+		       <a class="btn btn-outline-success" href="<%=request.getContextPath()%>/FindAllOradorController">Conoce al resto de los ORADORES</a>
+		
+	    </section>
+		    
         <section class="sec_div" id="el lugar y la fecha">
                 <div class="division row">
                     <div class="div_1 img-fluid col-12 col-md-6">
@@ -65,8 +93,8 @@
                     </div>
                     <div class="div_2 col-12 col-md-6">
                         <h2>Bs As - Octubre</h2>
-                        <p> Buenos Aires es la provincia y localidad mas grande del estado de Argentina, en los Estados Unidos, Honolulu es la más sureña de entre las principales ciudades estadounidenses. Aunque el nombre de Honolulu se refiere al área urbana en la costa sureste de la isla de Oahu, la ciudad y el condado de Honolulu han formado una ciudad-condado consolidada que cubre toda la ciudad (aproximadamente 600 Km2 de superficie).</p>
-                        <a class="div_2_a" href="./pages/404.html">Conoce más</a>
+                        <p> Buenos Aires es la provincia y localidad mas grande del estado de Argentina, en los Estados Unidos, Honolulu es la mas al sur de entre las principales ciudades estadounidenses. Aunque el nombre de Honolulu se refiere al area urbana en la costa sureste de la isla de Oahu, la ciudad y el condado de Honolulu han formado una ciudad-condado consolidada que cubre toda la ciudad (aproximadamente 600 Km2 de superficie).</p>
+                        <a class="div_2_a" href="./pages/404.html">Conoce mas</a>
                     </div>
                 </div>                                   
         </section>
@@ -75,27 +103,37 @@
                 <div class="h2-chica">CONVIERTETE EN UN</div>
                  ORADOR
             </h2>
-            <p class="text-center">Anótate como orador para dar una charla ignite. Cuéntanos de qué quieres hablar!</p>
-            <form class="col centrado" action="./pages/404.html" method="get">
-                <div class="row">
-                    <div class="col">
-                        <input class="form-control w-100" type="text" id="name" placeholder="Nombre" required>
-                    </div>
-                    <div class="col">
-                        <input class="form-control w-100" type="text" id="lastname" placeholder="Apellido" required>
-                    </div>                    
-                </div>                
-                <br>
-                <div class="w-100">
-                    <textarea class="form-control w-100" name="comentario" id="comentario" cols="55" rows="5" placeholder="Sobre qué quieres hablar?" ></textarea>
-                </div>
-                <p class="p_form">Recuerda incluir un título para tu charla</p>
-                <div>
-                    <input class="boton_enviar w-100" type="submit" value="Enviar">
-                </div>
+            <p class="text-center">Anotate como orador para dar una charla ignite. Cuentanos de que quieres hablar!</p>
+			<form class="col centrado" action="<%=request.getContextPath()%>/CreateOradorController" method="POST">
+				<div class="row">
+					<div class="col">
+						<input class="form-control w-100" type="text" id="name" name="nombre"
+							placeholder="Nombre" required>
+					</div>
+					<div class="col">
+						<input class="form-control w-100" type="text" id="lastname" name="apellido"
+							placeholder="Apellido" required>
+					</div>
+				</div>
+				<br>
+				<div class="row">
+					<div class="col mb-3">
+						<input type="email" class="form-control" name="mail"
+							placeholder="Email" aria-label="Email" required>
+					</div>
+				</div>
+				<div class="w-100">
+					<textarea class="form-control w-100" name="tema"
+						id="comentario" cols="55" rows="5"
+						placeholder="Sobre que quieres hablar?"></textarea>
+				</div>
+				<p class="p_form">Recuerda incluir un titulo para tu charla</p>
+				<div>
+					<input class="boton_enviar w-100" type="submit" value="Enviar">
+				</div>
 
-            </form>
-        </section>
+			</form>
+		</section>
     </main>    
     
     <jsp:include page="footer.jsp"/>

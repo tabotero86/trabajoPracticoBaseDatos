@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-11-2023 a las 00:26:21
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
+-- Tiempo de generación: 15-12-2023 a las 07:47:54
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,26 +31,28 @@ CREATE TABLE `oradores` (
   `id_orador` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL,
   `apellido` varchar(50) NOT NULL,
-  `mail` varchar(100) NOT NULL,
+  `mail` varchar(60) NOT NULL,
   `tema` varchar(255) NOT NULL,
-  `fecha_alta` datetime NOT NULL DEFAULT current_timestamp()
+  `activo` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `oradores`
 --
 
-INSERT INTO `oradores` (`id_orador`, `nombre`, `apellido`, `mail`, `tema`, `fecha_alta`) VALUES
-(1, 'Luis', 'Fabiano', 'lf@gmail.com', 'C++', '2023-11-10 20:11:52'),
-(2, 'Ezequiel', 'Moregui', 'emoregui@cisco.com', 'HTML', '2023-11-10 20:14:24'),
-(3, 'Luis', 'Martinez', 'lmar@hotmail.com', 'Diseño Web', '2023-11-10 20:15:13'),
-(4, 'Ernesto', 'Fischer', 'efischer@latinmail.com', 'Redes', '2023-11-10 20:16:37'),
-(5, 'Rosa', 'Perez', 'rperez@outlook.com', 'Java', '2023-11-10 20:17:24'),
-(6, 'Tomas', 'Cuenca', 'tcuenca@gmail.com', 'Inteligencia Artificial', '2023-11-10 20:18:11'),
-(7, 'Denise', 'Flores', 'dflores@juniper.com', 'Visual .NET', '2023-11-10 20:19:15'),
-(8, 'Manuel', 'Bustos', 'ebustos@ypf.com', 'Infraestructura tecnologica', '2023-11-10 20:20:02'),
-(9, 'Sergio', 'Quintero', 'squintero@saouth.com', 'microservicios', '2023-11-10 20:21:03'),
-(10, 'Rodrigo', 'Ruiz', 'rruiz@network.com', 'Firewalling y AMP', '2023-11-10 20:22:07');
+INSERT INTO `oradores` (`id_orador`, `nombre`, `apellido`, `mail`, `tema`, `activo`) VALUES
+(1, 'Carlos', 'Figueroa', 'cf@hotmail.com', 'JAVA', 'S'),
+(2, 'Julian', 'Gomez', 'jg@gmail.com', 'PHP', 'N'),
+(3, 'Ernesto', 'Fischer', 'ef@gmail.com', 'Scrum', 'S'),
+(4, 'Carolina', 'Batista', 'cb@gmail.com', 'IDE', 'S'),
+(5, 'Juan', 'Cruz', 'jcruz@gmail.com', 'C++', 'S'),
+(6, 'Debora', 'Camino', 'dcamino@hotmail.com', 'CSS ', 'S'),
+(7, 'Julieta', 'Rios', 'jr@latinmail.com', 'React', 'S'),
+(8, 'Agustina', 'Vitale', 'agusvitale@gmail.com', 'Animaciones CSS', 'S'),
+(9, 'Andres', 'Cuenca', 'ac@latinmail.com', 'JAVASCRIPT', 'N'),
+(10, 'Maty', 'Riha', 'mr@latinmail.com', 'INFRAESTRUCTURA', 'S'),
+(11, 'Andrea', 'Romero', 'ar@latinmail.com', 'Base de datos', 'S'),
+(12, 'Rocio', 'Hernandez', 'rh@gmail.com', 'Microservicios', 'S');
 
 --
 -- Índices para tablas volcadas
@@ -70,7 +72,7 @@ ALTER TABLE `oradores`
 -- AUTO_INCREMENT de la tabla `oradores`
 --
 ALTER TABLE `oradores`
-  MODIFY `id_orador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_orador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
